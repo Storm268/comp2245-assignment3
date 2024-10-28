@@ -37,4 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
         square.addEventListener("mouseover", () => square.classList.add("hover"));
         square.addEventListener("mouseout", () => square.classList.remove("hover"));
     });
+    
+    document.getElementById("newGame").addEventListener("click", () => {
+        console.log("New Game button clicked");
+        squares.forEach(square => {
+            square.textContent = "";
+            square.classList.remove("X", "O");
+        });
+
+        const statusDiv = document.getElementById("status");
+        statusDiv.classList.remove("you-won");
+        statusDiv.textContent = "Move your mouse over a square and click to play an X or an O.";
+
+        currentPlayer = "X";
+    });
 });
